@@ -26,6 +26,9 @@ namespace WebAPI.Migrations
                     b.Property<string>("Brand")
                         .HasColumnType("TEXT");
 
+                    b.Property<double?>("DailyRate")
+                        .HasColumnType("REAL");
+
                     b.Property<string>("LicensePlate")
                         .HasColumnType("TEXT");
 

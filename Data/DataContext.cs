@@ -34,6 +34,11 @@ namespace WebAPI.Data
                 .WithMany()
                 .HasForeignKey(r => r.OfficeId);
 
+            modelBuilder.Entity<Car>()
+                .HasOne(c => c.Office)     
+                .WithMany(o => o.Cars)
+                .HasForeignKey(c => c.OfficeId);
+
             base.OnModelCreating(modelBuilder);
         }
     }

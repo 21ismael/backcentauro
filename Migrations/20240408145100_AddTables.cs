@@ -49,7 +49,8 @@ namespace WebAPI.Migrations
                     Brand = table.Column<string>(type: "TEXT", nullable: true),
                     Model = table.Column<string>(type: "TEXT", nullable: true),
                     LicensePlate = table.Column<string>(type: "TEXT", nullable: true),
-                    OfficeId = table.Column<int>(type: "INTEGER", nullable: false)
+                    OfficeId = table.Column<int>(type: "INTEGER", nullable: false),
+                    DailyRate = table.Column<double>(type: "REAL", nullable: true)
                 },
                 constraints: table =>
                 {

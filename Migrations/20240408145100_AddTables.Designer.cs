@@ -11,7 +11,7 @@ using WebAPI.Data;
 namespace WebAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240408081522_AddTables")]
+    [Migration("20240408145100_AddTables")]
     partial class AddTables
     {
         /// <inheritdoc />
@@ -28,6 +28,9 @@ namespace WebAPI.Migrations
 
                     b.Property<string>("Brand")
                         .HasColumnType("TEXT");
+
+                    b.Property<double?>("DailyRate")
+                        .HasColumnType("REAL");
 
                     b.Property<string>("LicensePlate")
                         .HasColumnType("TEXT");

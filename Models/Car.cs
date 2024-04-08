@@ -19,19 +19,21 @@ namespace WebAPI.Models
 
         [ForeignKey("OfficeId")]
         public Office? Office { get; set; }
+
+        public double? DailyRate { get; set; }
     }
 }
 
 /*
-INSERT INTO Cars (Brand, Model, LicensePlate, OfficeId) VALUES 
-    ('Toyota', 'Corolla', 'ABC123', 1),
-    ('Ford', 'Mustang', 'XYZ789', 2),
-    ('Honda', 'Civic', 'DEF456', 1),
-    ('Chevrolet', 'Camaro', 'GHI789', 4),
-    ('Volkswagen', 'Golf', 'JKL012', 5),
-    ('Audi', 'A4', 'MNO345', 3),
-    ('BMW', '3 Series', 'PQR678', 1),
-    ('Mercedes-Benz', 'C-Class', 'STU901', 3),
-    ('Lexus', 'ES', 'VWX234', 2),
-    ('Hyundai', 'Elantra', 'YZA567', 1);
+INSERT INTO Cars (Brand, Model, LicensePlate, OfficeId, DailyRate) VALUES 
+    ('Toyota', 'Corolla', 'ABC123', 1, 40),
+    ('Ford', 'Mustang', 'XYZ789', 2, 50),
+    ('Honda', 'Civic', 'DEF456', 1, 39.99),
+    ('Chevrolet', 'Camaro', 'GHI789', 4, 70),
+    ('Volkswagen', 'Golf', 'JKL012', 5, 55),
+    ('Audi', 'A4', 'MNO345', 3, 59.99),
+    ('BMW', '3 Series', 'PQR678', 1, 59.99),
+    ('Mercedes-Benz', 'C-Class', 'STU901', 3, 60),
+    ('Lexus', 'ES', 'VWX234', 2, 69.99),
+    ('Hyundai', 'Elantra', 'YZA567', 1, 49.99);
 */
