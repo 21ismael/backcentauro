@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebAPI.Models
 {
@@ -11,16 +12,15 @@ namespace WebAPI.Models
         public int ReservationId { get; set; }
 
         public int CarId { get; set; }
-        [JsonIgnore]
+        [ForeignKey("CarId")]
         public Car? Car { get; set; }
 
         public int UserId { get; set; }
-        [JsonIgnore]
+        [ForeignKey("UserId")]
         public User? User { get; set; }
 
         public int OfficeId { get; set; }
-       
-        [JsonIgnore]
+        [ForeignKey("OfficeId")]
         public Office? Office { get; set; }
         
         public DateTime StartDate { get; set; }

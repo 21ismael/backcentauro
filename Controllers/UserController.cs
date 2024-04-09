@@ -37,6 +37,19 @@ namespace MyApp.Namespace
             return user; 
         }
 
+        [HttpGet("identity/{identityNumber}", Name = "GetUserByIdentityNumber")]
+        public async Task<ActionResult<User>> GetUserByIdentityNumber(string identityNumber)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.IdentityNumber == identityNumber);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return user;
+        }
+
         [HttpPost]
         public async Task<ActionResult<User>> Post(User user)
         {

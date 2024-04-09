@@ -25,10 +25,23 @@ namespace MyApp.Namespace
             return cars;
         }
 
-        [HttpGet("{id}", Name = "GetCar")]
+        [HttpGet("Id/{id}", Name = "GetCar")]
         public async Task<ActionResult<Car>> GetCar(int id)
         {
             var car = await _context.Cars.Include(c => c.Office).FirstOrDefaultAsync(c => c.Id == id);
+
+            if (car == null)
+            {
+                return NotFound();
+            }
+
+            return car;
+        }
+
+        [HttpGet("LicensePlate/{licensePlate}", Name = "GetCarByLicensePlate")]
+        public async Task<ActionResult<Car>> GetCarByLicensePlate(string licensePlate)
+        {
+            var car = await _context.Cars.Include(c => c.Office).FirstOrDefaultAsync(c => c.LicensePlate == licensePlate);
 
             if (car == null)
             {
