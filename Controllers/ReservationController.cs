@@ -28,6 +28,19 @@ namespace MyApp.Namespace
                 .ToListAsync();
         }
 
+        [HttpGet("{id}", Name = "getReservation")]
+        public async Task<ActionResult<Reservation>> GetReservation(int id)
+        {
+            var reservation = await _context.Reservations.FindAsync(id);
+
+            if (reservation == null)
+            {
+                return NotFound();
+            }
+
+            return reservation;
+        }
+
         [HttpPost]
         public async Task<ActionResult<Reservation>> Post(Reservation reservation)
         {
@@ -35,6 +48,20 @@ namespace MyApp.Namespace
             await _context.SaveChangesAsync();
 
             return new CreatedAtRouteResult("GetReservation", new { id = reservation.ReservationId }, reservation);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<Reservation>> Put(int id, Reservation reservation)
+        {
+            if (id != reservation.ReservationId)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(reservation).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return Ok();
         }
 
         [HttpDelete("{id}")]
