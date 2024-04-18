@@ -12,6 +12,7 @@ namespace WebAPI.Data
         }
 
         //Las migraciones generán las tabalas en base al DbSet
+        public DbSet<Fleet> Fleet { get; set; }
         public DbSet<Car> Cars { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Office> Offices { get; set; }
@@ -38,6 +39,11 @@ namespace WebAPI.Data
                 .HasOne(c => c.Office)     
                 .WithMany(o => o.Cars)
                 .HasForeignKey(c => c.OfficeId);
+
+            modelBuilder.Entity<Car>()
+                .HasOne(c => c.Fleet)     
+                .WithMany(o => o.Cars)
+                .HasForeignKey(c => c.FleetId);
 
             base.OnModelCreating(modelBuilder);
         }

@@ -6,7 +6,7 @@ using WebAPI.Models;
 
 namespace MyApp.Namespace
 {
-    [Route("api/[controller]")]
+    [Route("api/reservation")]
     [ApiController]
     public class ReservationController : ControllerBase
     {

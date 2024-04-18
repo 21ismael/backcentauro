@@ -6,7 +6,7 @@ using WebAPI.Models;
 
 namespace MyApp.Namespace
 {
-    [Route("api/[controller]")]
+    [Route("api/user")]
     [ApiController]
     public class UserController : ControllerBase
     {

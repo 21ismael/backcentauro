@@ -6,7 +6,7 @@ using WebAPI.Models;
 
 namespace MyApp.Namespace
 {
-    [Route("api/[controller]")]
+    [Route("api/office")]
     [ApiController]
     public class OfficeController : ControllerBase
     {
@@ -28,6 +28,19 @@ namespace MyApp.Namespace
         public async Task<ActionResult<Office>> GetOffice(int id)
         {
             var office = await _context.Offices.FindAsync(id);
+
+            if (office == null)
+            {
+                return NotFound();
+            }
+
+            return office;
+        }
+
+        [HttpGet("name/{name}", Name = "getOfficeByName")]
+        public async Task<ActionResult<Office>> GetOfficeByName(string name)
+        {
+            var office = await _context.Offices.FirstOrDefaultAsync(o => o.Name.ToLower() == name.ToLower());
 
             if (office == null)
             {

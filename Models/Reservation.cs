@@ -23,13 +23,13 @@ namespace WebAPI.Models
         [ForeignKey("OfficeId")]
         public Office? Office { get; set; }
         
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime PickupDate { get; set; }
+        public DateTime ReturnDate { get; set; }
     }
 }
 
 /*
-INSERT INTO Reservations (CarId, UserId, OfficeId, StartDate, EndDate) 
+INSERT INTO Reservations (CarId, UserId, OfficeId, PickupDate, ReturnDate) 
 VALUES 
     (4, 1, 1, '2024-04-10 09:00:00', '2024-04-15 17:00:00');
 */

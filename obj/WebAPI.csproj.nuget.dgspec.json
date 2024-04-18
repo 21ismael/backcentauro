@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\iauam\\Desktop\\apicentauro\\WebAPI.csproj": {}
+    "C:\\Users\\iauam\\Desktop\\backcentauro\\WebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\iauam\\Desktop\\apicentauro\\WebAPI.csproj": {
+    "C:\\Users\\iauam\\Desktop\\backcentauro\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\iauam\\Desktop\\apicentauro\\WebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\iauam\\Desktop\\backcentauro\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "C:\\Users\\iauam\\Desktop\\apicentauro\\WebAPI.csproj",
+        "projectPath": "C:\\Users\\iauam\\Desktop\\backcentauro\\WebAPI.csproj",
         "packagesPath": "C:\\Users\\iauam\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\iauam\\Desktop\\apicentauro\\obj\\",
+        "outputPath": "C:\\Users\\iauam\\Desktop\\backcentauro\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\iauam\\AppData\\Roaming\\NuGet\\NuGet.Config",

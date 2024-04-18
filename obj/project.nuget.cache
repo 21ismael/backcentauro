@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1YGZvcpNXTuLCzrd2dANZ03wBKZbT3GORB+CDhPnzwQ/0fZAGEuZI7XhNo4LCCtXxW43JqP2/dRbb0YGYzN6oA==",
+  "dgSpecHash": "tet91DTeP00ai4qLlVjDu+YW3DDr2Ah017fuOU3Dz6OUMk5m4+F0MwR1Qyh9omNaeh4yH12SAW/HTudJF2dAhw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\iauam\\Desktop\\apicentauro\\WebAPI.csproj",
+  "projectFilePath": "C:\\Users\\iauam\\Desktop\\backcentauro\\WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\iauam\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\iauam\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.3\\microsoft.aspnetcore.openapi.8.0.3.nupkg.sha512",

@@ -11,7 +11,7 @@ using WebAPI.Data;
 namespace WebAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240408145100_AddTables")]
+    [Migration("20240417081554_AddTables")]
     partial class AddTables
     {
         /// <inheritdoc />
@@ -26,16 +26,10 @@ namespace WebAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Brand")
-                        .HasColumnType("TEXT");
-
-                    b.Property<double?>("DailyRate")
-                        .HasColumnType("REAL");
+                    b.Property<int>("FleetId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("LicensePlate")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Model")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("OfficeId")
@@ -43,9 +37,34 @@ namespace WebAPI.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("FleetId");
+
                     b.HasIndex("OfficeId");
 
                     b.ToTable("Cars");
+                });
+
+            modelBuilder.Entity("WebAPI.Models.Fleet", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Brand")
+                        .HasColumnType("TEXT");
+
+                    b.Property<double?>("DailyRate")
+                        .HasColumnType("REAL");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Model")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Fleet");
                 });
 
             modelBuilder.Entity("WebAPI.Models.Office", b =>
@@ -74,13 +93,13 @@ namespace WebAPI.Migrations
                     b.Property<int>("CarId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("TEXT");
-
                     b.Property<int>("OfficeId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("StartDate")
+                    b.Property<DateTime>("PickupDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("ReturnDate")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("UserId")
@@ -119,11 +138,19 @@ namespace WebAPI.Migrations
 
             modelBuilder.Entity("WebAPI.Models.Car", b =>
                 {
+                    b.HasOne("WebAPI.Models.Fleet", "Fleet")
+                        .WithMany("Cars")
+                        .HasForeignKey("FleetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("WebAPI.Models.Office", "Office")
                         .WithMany("Cars")
                         .HasForeignKey("OfficeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Fleet");
 
                     b.Navigation("Office");
                 });
@@ -153,6 +180,11 @@ namespace WebAPI.Migrations
                     b.Navigation("Office");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("WebAPI.Models.Fleet", b =>
+                {
+                    b.Navigation("Cars");
                 });
 
             modelBuilder.Entity("WebAPI.Models.Office", b =>
