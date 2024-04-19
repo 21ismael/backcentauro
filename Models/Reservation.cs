@@ -19,10 +19,6 @@ namespace WebAPI.Models
         [ForeignKey("UserId")]
         public User? User { get; set; }
 
-        public int OfficeId { get; set; }
-        [ForeignKey("OfficeId")]
-        public Office? Office { get; set; }
-        
         public DateTime PickupDate { get; set; }
         public DateTime ReturnDate { get; set; }
     }

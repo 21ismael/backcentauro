@@ -91,7 +91,6 @@ namespace WebAPI.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     CarId = table.Column<int>(type: "INTEGER", nullable: false),
                     UserId = table.Column<int>(type: "INTEGER", nullable: false),
-                    OfficeId = table.Column<int>(type: "INTEGER", nullable: false),
                     PickupDate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     ReturnDate = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
@@ -102,12 +101,6 @@ namespace WebAPI.Migrations
                         name: "FK_Reservations_Cars_CarId",
                         column: x => x.CarId,
                         principalTable: "Cars",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Reservations_Offices_OfficeId",
-                        column: x => x.OfficeId,
-                        principalTable: "Offices",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -132,11 +125,6 @@ namespace WebAPI.Migrations
                 name: "IX_Reservations_CarId",
                 table: "Reservations",
                 column: "CarId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Reservations_OfficeId",
-                table: "Reservations",
-                column: "OfficeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Reservations_UserId",

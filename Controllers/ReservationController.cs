@@ -23,8 +23,10 @@ namespace MyApp.Namespace
         {
             return await _context.Reservations
                 .Include(r => r.Car)
+                    .ThenInclude(c => c!.Office)
+                .Include(r => r.Car)
+                    .ThenInclude(c => c!.Fleet)
                 .Include(r => r.User)
-                .Include(r => r.Office)
                 .ToListAsync();
         }
 

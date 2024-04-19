@@ -30,11 +30,6 @@ namespace WebAPI.Data
                 .WithMany()
                 .HasForeignKey(r => r.UserId);
 
-            modelBuilder.Entity<Reservation>()
-                .HasOne(r => r.Office)
-                .WithMany()
-                .HasForeignKey(r => r.OfficeId);
-
             modelBuilder.Entity<Car>()
                 .HasOne(c => c.Office)     
                 .WithMany(o => o.Cars)

@@ -11,7 +11,7 @@ using WebAPI.Data;
 namespace WebAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240417081554_AddTables")]
+    [Migration("20240419072449_AddTables")]
     partial class AddTables
     {
         /// <inheritdoc />
@@ -93,9 +93,6 @@ namespace WebAPI.Migrations
                     b.Property<int>("CarId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("OfficeId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<DateTime>("PickupDate")
                         .HasColumnType("TEXT");
 
@@ -108,8 +105,6 @@ namespace WebAPI.Migrations
                     b.HasKey("ReservationId");
 
                     b.HasIndex("CarId");
-
-                    b.HasIndex("OfficeId");
 
                     b.HasIndex("UserId");
 
@@ -163,12 +158,6 @@ namespace WebAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WebAPI.Models.Office", "Office")
-                        .WithMany()
-                        .HasForeignKey("OfficeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("WebAPI.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
@@ -176,8 +165,6 @@ namespace WebAPI.Migrations
                         .IsRequired();
 
                     b.Navigation("Car");
-
-                    b.Navigation("Office");
 
                     b.Navigation("User");
                 });

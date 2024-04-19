@@ -56,7 +56,7 @@ namespace MyApp.Namespace
         {
             // Obtener la lista de reservas que se superponen con el rango de fechas y la oficina especificada
             var overlappingReservations = await _context.Reservations
-                .Where(r => r.PickupDate <= returnDate && r.ReturnDate >= pickupDate && r.OfficeId == officeId)
+                .Where(r => r.PickupDate <= returnDate && r.ReturnDate >= pickupDate && r.Car!.OfficeId == officeId)
                 .ToListAsync();
 
             // Obtener la lista de todos los coches de la oficina especificada
