@@ -91,7 +91,7 @@ namespace MyApp.Namespace
             _context.Entry(car).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
-            return Ok();
+            return car;
         }
 
         [HttpDelete("{id}")]

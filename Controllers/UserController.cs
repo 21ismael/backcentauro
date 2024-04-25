@@ -64,7 +64,7 @@ namespace MyApp.Namespace
         {
             if (id != user.Id)
             {
-                return BadRequest();
+                return BadRequest("El ID proporcionado no coincide con el ID del usuario.");
             }
 
             _context.Entry(user).State = EntityState.Modified; 
